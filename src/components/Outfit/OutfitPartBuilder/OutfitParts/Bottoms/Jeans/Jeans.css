@@ -1,0 +1,44 @@
+.Jeans{
+    height: 14%;
+    width: 23%;    
+    margin: 2% auto;
+    position: relative;
+    border-radius: 5px 5px 0 0;   
+    -webkit-box-shadow: 0 10px 6px -6px #777;
+    -moz-box-shadow: 0 10px 6px -6px #777;
+         box-shadow: 0 10px 6px -6px #777; 
+}
+
+.JeansZip{
+    position:absolute;
+    height:78%;
+    top: 15%;
+    width:2%;
+    border: 1px dashed black;
+    left: 50%;
+}
+
+.JeansLeg{
+    position: absolute;
+    margin-right: 12px;
+    background: inherit;
+    height: 310%;
+    width: 45%;
+    left: 0%;
+    border-radius: 5px 0 5px 5px;    
+    border-left: 2px dashed black;
+    -webkit-box-shadow: 0 10px 6px -6px #777;
+    -moz-box-shadow: 0 10px 6px -6px #777;
+         box-shadow: 0 10px 6px -6px #777;
+}
+
+.JeansLegRight{
+    transform: translatex(125%);
+    border-left: none;
+}
+.JeansStitch {
+    border: 1px dashed yellow;
+    position: absolute;    
+    height: 95%;
+    left: 80%;
+}

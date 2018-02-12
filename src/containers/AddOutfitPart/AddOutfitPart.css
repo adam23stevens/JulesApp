@@ -1,0 +1,60 @@
+.addOutfitPart {
+        width: 100%;
+        margin: 0 auto;
+        overflow-y: scroll;
+        text-align: center;
+        font-weight: bold;
+}
+
+.outfitPartPickerWrap{
+    display: flex;
+    flex-direction: row;
+}
+
+.outfitPartPicker {
+    height: 400px;
+    width: 80%;
+    margin: 0 auto;
+}
+.buttonLeft{
+    width: 0;
+    height: 0;
+    position: absolute;
+    border-top: 15px solid transparent;
+    border-bottom: 15px solid transparent;
+    border-left: none;
+    background-color: transparent;
+}
+.buttonRight{
+    width: 0;
+    height: 0;
+    position: absolute;
+    border-top: 15px solid transparent;
+    border-bottom: 15px solid transparent;
+    border-right: none;
+    background-color: transparent;
+}
+
+.prev {
+    left: 5%;
+    top: 35%;
+    border-right: 25px solid rgb(245, 190, 38);
+}
+
+.next{
+    right: 5%;
+    top: 35%;
+    border-left: 25px solid rgb(245, 190, 38);
+}
+
+.prevColour{
+    left: 5%;
+    top: 60%;
+    border-right: 25px solid rgb(178, 172, 230);
+}
+
+.nextColour{
+    right: 5%;
+    top: 60%;
+    border-left: 25px solid rgb(178, 172, 230);
+}

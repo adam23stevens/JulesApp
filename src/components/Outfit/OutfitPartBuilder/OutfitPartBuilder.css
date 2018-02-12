@@ -1,0 +1,171 @@
+.Default{
+    background: linear-gradient(rgb(15, 8, 226), rgb(92, 101, 221));
+}
+
+.add{
+    height: 40% !important;
+    width: 30% !important;
+    margin-left: 35%;
+}
+
+.Red{
+    background: linear-gradient(rgb(236, 21, 21), #e70707);
+}
+
+.Green{
+    background: linear-gradient(#65e629, #228c1d);
+}
+
+.Blue {
+    background: linear-gradient(#2d67e4, #0d47bb);
+}
+
+.Navy {
+    background: linear-gradient(rgba(17, 17, 51, 0.733), #081a3f);
+}
+.Grey {
+    background: linear-gradient(#cccccc, #eeeeee);
+}
+
+.BlackLeather{
+    background: linear-gradient(#555555, #222222);
+}
+
+.Tartan {
+    background-color: hsl(2, 57%, 40%);
+background-image: repeating-linear-gradient(transparent, transparent 50px, rgba(0,0,0,.4) 50px, rgba(0,0,0,.4) 53px, transparent 53px, transparent 63px, rgba(0,0,0,.4) 63px, rgba(0,0,0,.4) 66px, transparent 66px, transparent 116px, rgba(0,0,0,.5) 116px, rgba(0,0,0,.5) 166px, rgba(255,255,255,.2) 166px, rgba(255,255,255,.2) 169px, rgba(0,0,0,.5) 169px, rgba(0,0,0,.5) 179px, rgba(255,255,255,.2) 179px, rgba(255,255,255,.2) 182px, rgba(0,0,0,.5) 182px, rgba(0,0,0,.5) 232px, transparent 232px),
+repeating-linear-gradient(270deg, transparent, transparent 50px, rgba(0,0,0,.4) 50px, rgba(0,0,0,.4) 53px, transparent 53px, transparent 63px, rgba(0,0,0,.4) 63px, rgba(0,0,0,.4) 66px, transparent 66px, transparent 116px, rgba(0,0,0,.5) 116px, rgba(0,0,0,.5) 166px, rgba(255,255,255,.2) 166px, rgba(255,255,255,.2) 169px, rgba(0,0,0,.5) 169px, rgba(0,0,0,.5) 179px, rgba(255,255,255,.2) 179px, rgba(255,255,255,.2) 182px, rgba(0,0,0,.5) 182px, rgba(0,0,0,.5) 232px, transparent 232px),
+repeating-linear-gradient(125deg, transparent, transparent 2px, rgba(0,0,0,.2) 2px, rgba(0,0,0,.2) 3px, transparent 3px, transparent 5px, rgba(0,0,0,.2) 5px);
+}
+
+.Weave {
+    background: linear-gradient(45deg, #dca 12%, transparent 0, transparent 88%, #dca 0),
+    linear-gradient(135deg, transparent 37%, #a85 0, rgb(214, 42, 12) 63%, transparent 0),
+    linear-gradient(45deg, transparent 37%, #dca 0, #dca 63%, transparent 0) #753;
+    background-size: 25px 25px;
+}
+
+.DiagonalStripes{
+    background: 
+    linear-gradient(63deg, #999 23%, transparent 23%) 7px 0, 
+    linear-gradient(63deg, transparent 74%, #999 78%), 
+    linear-gradient(63deg, transparent 34%, #999 38%, #999 58%, transparent 62%), 
+    #444;
+    background-size: 16px 48px;
+}
+
+.BlueDenim {
+    background-color: #1a8ec0;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 4 4'%3E%3Cpath fill='%236200ff' fill-opacity='0.19' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'%3E%3C/path%3E%3C/svg%3E");
+}
+
+.BlackDenim{
+    background-color: #333;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 4 4'%3E%3Cpath fill='%236200ff' fill-opacity='0.19' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'%3E%3C/path%3E%3C/svg%3E");
+}
+
+/* 
+.BreadTop {
+    height: 20%;
+    width: 80%;
+    background: linear-gradient(#bc581e, #e27b36);
+    border-radius: 50% 50% 0 0;
+    box-shadow: inset -15px 0 #c15711;
+    margin: 2% auto;
+    position: relative;
+}
+
+.Seeds1 {
+    width: 10%;
+    height: 15%;
+    position: absolute;
+    background-color: white;
+    left: 30%;
+    top: 50%;
+    border-radius: 40%;
+    transform: rotate(-20deg);
+    box-shadow: inset -2px -3px #c9c9c9;
+}
+
+.Seeds1:after {
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-color: white;
+    left: -170%;
+    top: -260%;
+    border-radius: 40%;
+    transform: rotate(60deg);
+    box-shadow: inset -1px 2px #c9c9c9;
+  }
+  
+.Seeds1:before {
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-color: white;
+    left: 180%;
+    top: -50%;
+    border-radius: 40%;
+    transform: rotate(60deg);
+    box-shadow: inset -1px -3px #c9c9c9;
+  }
+
+  .Seeds2 {
+    width: 10%;
+    height: 15%;
+    position: absolute;
+    background-color: white;
+    left: 64%;
+    top: 50%;
+    border-radius: 40%;
+    transform: rotate(10deg);
+    box-shadow: inset -3px 0 #c9c9c9;
+  }
+  
+  .Seeds2:before {
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-color: white;
+    left: 150%;
+    top: -130%;
+    border-radius: 40%;
+    transform: rotate(90deg);
+    box-shadow: inset 1px 3px #c9c9c9;
+  }
+  
+
+.Meat {
+    width: 80%;
+    height: 8%;
+    background: linear-gradient(#7f3608, #702e05);
+    margin: 2% auto;
+    border-radius: 15px;
+}
+
+.Cheese {
+    width: 90%;
+    height: 4.5%;
+    margin: 2% auto;
+    background: linear-gradient(#f4d004, #d6bb22);
+    border-radius: 20px;
+}
+
+.Salad {
+    width: 85%;
+    height: 7%;
+    margin: 2% auto;
+    background: linear-gradient(#228c1d, #91ce50);
+    border-radius: 20px;
+}
+
+.Bacon {
+    width: 80%;
+    height: 3%;
+    background: linear-gradient(#bf3813, #c45e38);
+    margin: 2% auto;
+} */

@@ -1,0 +1,15 @@
+.AddOutfitBtn {
+    position:absolute;
+    top: 90%;
+    left:10%;
+    padding: 1rem;
+    margin: auto;
+    cursor: pointer;
+    background-color: #DD9811;
+    color: #EEE;
+    border-radius: 6px 6px 6px 6px;
+}
+
+.AddOutfitBtn:hover{
+    background-color: #ffe600;
+}

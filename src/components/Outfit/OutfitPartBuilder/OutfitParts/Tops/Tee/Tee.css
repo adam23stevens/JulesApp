@@ -1,0 +1,38 @@
+.Tee {
+    height: 35%;
+    width: 20%;
+    border-radius: 0 0 10px 10px;    
+    margin: 2% auto;
+    position:relative;    
+
+    -webkit-box-shadow: 0 10px 6px -6px #777;
+    -moz-box-shadow: 0 10px 6px -6px #777;
+         box-shadow: 0 10px 6px -6px #777;
+}
+
+.TeeNeck{
+    position: absolute;
+    width: 40%;
+    height: 13%;
+    border-radius: 0 0 15px 15px;
+    background-color: white;
+    align-items: center;
+    left: 30%;
+}
+
+.TeeSleeve{
+    height: 40%;
+    width: 35%;
+    position: absolute;        
+    background: inherit;    
+    border-radius: 20px 0 0 5px;
+    left: -34%;    
+    -webkit-box-shadow: 0 10px 6px -6px #777;
+    -moz-box-shadow: 0 10px 6px -6px #777;
+         box-shadow: 0 10px 6px -6px #777;  
+}
+
+.TeeSleeveRight {
+    transform: translateX(379%);
+    border-radius: 0 20px 5px 0;
+}

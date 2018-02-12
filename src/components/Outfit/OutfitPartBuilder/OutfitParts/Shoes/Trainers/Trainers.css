@@ -1,0 +1,50 @@
+.Trainers {
+    position: relative;
+    /* margin: 10rem auto; */
+    height: 18%;
+    width: 20%;
+    
+}
+
+.TrainersTop {
+    position: absolute;
+    height: 100%;
+    width: 45%;
+    left: -3%;
+    border-radius: 13px 13px 25px 25px;
+    border-left: 5px dotted white;
+    -webkit-box-shadow: 0 10px 6px -6px #777;
+    -moz-box-shadow: 0 10px 6px -6px #777;
+         box-shadow: 0 10px 6px -6px #777;
+}
+
+.TrainersTopRight{
+    transform: translateX(140%);
+}
+
+.TrainersTopHole {
+    position: absolute;
+    background-color: black;
+    left: 22%;
+    top: 5%;
+    width: 60%;
+    height: 40%;
+    border-radius: 15px 15px 15px 15px;
+    border-bottom: 0.9px solid white;
+}
+
+.TrainersTopDetail{
+    position: absolute;
+    border: 1px solid white;
+    width: 60%;
+    top: 60%;
+    left: 20%;
+}
+
+.TrainersTopDetailMiddle{
+    transform: translateY(4px);
+}
+
+.TrainersTopDetailBottom{
+    transform: translateY(8px);
+}
