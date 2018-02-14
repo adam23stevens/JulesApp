@@ -20,6 +20,7 @@ class voucher extends Component {
         const id = this.props.match.params.id;
         const thisData = data.filter(d => d.voucher.id === id);
         const thisVoucher = thisData[0].voucher;
+        const backText = '<-Back to vouchers';
 
         return (
             <Wrap>
@@ -35,6 +36,9 @@ class voucher extends Component {
                     {thisVoucher.isUsed &&
                         <input className={classes.redeemButtonUsed} type='button' value='Redeemed!' onClick={() => this.redeemUsedVoucher(thisVoucher)}/>
                     }
+                </div>
+                <div className={classes.back}>
+                    <NavigationItem link='/vouchers'>{backText}</NavigationItem>
                 </div>
             </Wrap>
         )

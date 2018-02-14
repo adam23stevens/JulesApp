@@ -38,7 +38,7 @@ class Layout extends Component {
                 <Route path="/clues" exact component={clues}/>
                 <Route path="/clue/:id" component={clue}/>
                 <Route path="/vouchers" exact component={vouchers}/>
-                <Route path="/vouchers/:id" component={voucher}/>
+                <Route path="/voucher/:id" component={voucher}/>
                 <Route path="/presents" exact component={presents}/>
             </main>
         </Wrap>

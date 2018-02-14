@@ -13,7 +13,7 @@ const data = [{
         clueNum: 2,
         clueText: 'This is the second clue',
         answer: 'answer2',
-        isShown: false,
+        isShown: true,
         isAnswered: false
     }
 }

@@ -12,8 +12,8 @@ const data = [{
         id: 'voucher2',
         title: 'Cooked Meal',
         desc: 'Any meal of your choice cooked and dished by me',
-        isUsed: false,
-        isShown: false
+        isUsed: true,
+        isShown: true
     }
 }];
 
