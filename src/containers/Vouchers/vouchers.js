@@ -10,7 +10,7 @@ const vouchers = () => {
         const linkTo = 'voucher' + d.voucher.id;
         return (
             <li key={index}>
-                <NavigationItem key={index} link={linkTo}>d.voucher.title</NavigationItem>
+                <NavigationItem key={index} link={linkTo}>{d.voucher.title}</NavigationItem>
             </li>
         )
     })
