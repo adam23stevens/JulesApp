@@ -7,6 +7,7 @@ import home from '../../containers/Home/home';
 import clues from '../../containers/Clues/clues';
 import clue from '../../containers/Clues/Clue/Clue';
 import vouchers from '../../containers/Vouchers/vouchers';
+import Voucher from '../../containers/Vouchers/voucher/voucher';
 import presents from '../../containers/Presents/presents';
 import { Route } from 'react-router-dom';
 
@@ -37,6 +38,7 @@ class Layout extends Component {
                 <Route path="/clues" exact component={clues}/>
                 <Route path="/clue/:id" component={clue}/>
                 <Route path="/vouchers" exact component={vouchers}/>
+                <Route path="/vouchers/:id" component={voucher}/>
                 <Route path="/presents" exact component={presents}/>
             </main>
         </Wrap>
