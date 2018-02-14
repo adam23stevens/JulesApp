@@ -7,17 +7,16 @@ import NavigationItem from '../../components/Navigation/NavigationItems/Navigati
 const vouchers = () => {
     const voucherItems = data.filter(d => d.voucher.isShown).map((d, index) => {
         index += 1;
-        const linkTo = 'voucher' + d.voucher.id;
         return (
             <li key={index}>
-                <NavigationItem key={index} link={linkTo}>{d.voucher.title}</NavigationItem>
+                <NavigationItem key={index} link={d.voucher.id}>{d.voucher.title}</NavigationItem>
             </li>
         )
     })
     return (
         <Wrap>
             <h1>vouchers</h1>
-            <ul class={classes.vouchers}>
+            <ul className={classes.vouchers}>
                 {voucherItems}
             </ul>
         </Wrap>

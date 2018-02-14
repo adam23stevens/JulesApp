@@ -1,0 +1,29 @@
+.voucher {
+    max-width: 70%;
+}
+
+.redeemButton {
+    width: 30%;
+    background-color: #33bb11;
+    border-radius: 5px;
+    font-size: 19pt;
+    color: white;
+    box-shadow: 1px 1px 4px black;
+    line-height: 2rem;
+    margin: 2rem 20%;
+}
+
+.redeemButtonUsed {
+    width: 40%;
+    background-color: #bb3311;
+    border-radius: 5px;
+    font-size: 19pt;
+    color: white;
+    box-shadow: 1px 1px 4px black;
+    line-height: 2rem;
+    margin: 2rem 20%;
+}
+
+.back {
+    margin-top: 10rem;
+}

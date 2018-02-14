@@ -1,8 +1,8 @@
 const data = [{
     voucher: {
         id: 'voucher1',
-        title: 'something nice',
-        desc: 'this voucher entitles you to something really nice',
+        title: 'Mcdonalds',
+        desc: 'A Mcdonalds meal of your choice.',
         isUsed: false,
         isShown: true
     }
@@ -10,8 +10,8 @@ const data = [{
 {
     voucher: {
         id: 'voucher2',
-        title: 'another thing',
-        desc: 'This voucher is another thing what is really nice',
+        title: 'Cooked Meal',
+        desc: 'Any meal of your choice cooked and dished by me',
         isUsed: false,
         isShown: false
     }

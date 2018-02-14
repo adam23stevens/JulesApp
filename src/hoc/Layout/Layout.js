@@ -7,7 +7,7 @@ import home from '../../containers/Home/home';
 import clues from '../../containers/Clues/clues';
 import clue from '../../containers/Clues/Clue/Clue';
 import vouchers from '../../containers/Vouchers/vouchers';
-import Voucher from '../../containers/Vouchers/voucher/voucher';
+import voucher from '../../containers/Vouchers/voucher/voucher';
 import presents from '../../containers/Presents/presents';
 import { Route } from 'react-router-dom';
 
