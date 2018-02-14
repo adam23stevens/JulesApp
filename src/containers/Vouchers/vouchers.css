@@ -1,0 +1,4 @@
+.vouchers {
+    display: flex;
+    flex-direction: column;
+}

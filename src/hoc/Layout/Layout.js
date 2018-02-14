@@ -3,9 +3,11 @@ import Wrap from '../wrap/wrap'
 import classes from './Layout.css';
 import Toolbar from '../../components/Navigation/Toolbar/Toolbar';
 import SideDrawer from '../../components/Navigation/SideDrawer/SideDrawer';
-import OutfitBuilder from '../../containers/OutfitBuilder/OutfitBuilder';
-import AddOutfitPart from '../../containers/AddOutfitPart/AddOutfitPart';
-import Stats from '../../containers/Stats/Stats';
+import home from '../../containers/Home/home';
+import clues from '../../containers/Clues/clues';
+import clue from '../../containers/Clues/Clue/Clue';
+import vouchers from '../../containers/Vouchers/vouchers';
+import presents from '../../containers/Presents/presents';
 import { Route } from 'react-router-dom';
 
 class Layout extends Component {
@@ -31,9 +33,11 @@ class Layout extends Component {
                 close={this.hideSideDrawerHandler} />
             <main className={classes.Content}>
                 {/* {this.props.children} */}
-                <Route path="/" exact component={OutfitBuilder}/>
-                <Route path="/stats" exact component={Stats}/>
-                <Route path="/add" exact component={AddOutfitPart}/>
+                <Route path="/" exact component={home}/>
+                <Route path="/clues" exact component={clues}/>
+                <Route path="/clue/:id" component={clue}/>
+                <Route path="/vouchers" exact component={vouchers}/>
+                <Route path="/presents" exact component={presents}/>
             </main>
         </Wrap>
         )
