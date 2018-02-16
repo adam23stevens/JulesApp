@@ -1,10 +1,10 @@
 import React from 'react';
 import classes from './Logo.css';
-import wrapmeapplogo from '../../../assets/images/wrapmeapplogo.png';
+import birthdayCakeLogo from '../../../assets/images/birthday-cake.png';
 
 const logo = () => (
     <div className={classes.Logo}>
-        <img src={wrapmeapplogo} alt='wrapmeapp'/>
+        <img src={birthdayCakeLogo} alt='birthday-cake'/>
     </div>
 )
 
