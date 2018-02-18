@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import classes from './Clue.css';
 import Wrap from '../../../hoc/wrap/wrap';
+import Footer from '../../../components/UI/Footer/footer';
 import NavigationItem from '../../../components/Navigation/NavigationItems/NavigationItem/NavigationItem';
 import axios from '../../../axios-base';
 import Spinner from '../../../components/UI/Spinner/Spinner';
@@ -15,13 +16,15 @@ class Clue extends Component {
 
     onCheckAnswer = (answer, guess) => {
 
+        const isCorrect = answer.toUpperCase() === guess.toUpperCase();
+
         alert(
-            answer === guess
+            isCorrect
                 ? 'you got it right'
                 : 'nope, that was wrong'
         )
 
-        if (answer !== guess) {
+        if (!isCorrect) {
             this.refs.answerText.value = '';
         } else {
             //unlock stuff
@@ -120,9 +123,11 @@ class Clue extends Component {
         return (
             <Wrap>
                 {clueDisplay}
-                <div className={classes.back}>
-                    <NavigationItem link='/clues'>{backToClueText}</NavigationItem>
-                </div>
+                <Footer>
+                    <div className={classes.back}>
+                        <NavigationItem link='/clues'>{backToClueText}</NavigationItem>
+                    </div>
+                </Footer>
             </Wrap>
         )
     }

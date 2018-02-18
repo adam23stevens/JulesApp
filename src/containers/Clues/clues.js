@@ -51,7 +51,7 @@ class Clues extends Component {
 
         return (
             <div className='clues'>
-                <h1>Clues so far</h1>
+                <h1>Your clues so far...</h1>
                 <ul className='clueList'>
                     {allClues}
                 </ul>

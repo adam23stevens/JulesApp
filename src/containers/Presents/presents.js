@@ -51,7 +51,7 @@ class presents extends Component {
         }
         return (
             <Wrap>
-                <h1>Presents</h1>
+                <h1>OMG PRESENTS!!!</h1>
                 <ul className={classes.presents}>
                     {presentItems}
                 </ul>

@@ -53,7 +53,7 @@ class vouchers extends Component {
         }
         return (
             <Wrap>
-                <h1>vouchers</h1>
+                <h1>Your available birthday vouchers</h1>
                 <ul className={classes.vouchers}>
                     {voucherItems}
                 </ul>
