@@ -9,6 +9,7 @@ import clue from '../../containers/Clues/Clue/Clue';
 import vouchers from '../../containers/Vouchers/vouchers';
 import voucher from '../../containers/Vouchers/voucher/voucher';
 import presents from '../../containers/Presents/presents';
+import present from '../../containers/Presents/Present/present';
 import { Route } from 'react-router-dom';
 
 class Layout extends Component {
@@ -40,6 +41,7 @@ class Layout extends Component {
                 <Route path="/vouchers" exact component={vouchers}/>
                 <Route path="/voucher/:id" component={voucher}/>
                 <Route path="/presents" exact component={presents}/>
+                <Route path="/present/:id" component={present}/>
             </main>
         </Wrap>
         )

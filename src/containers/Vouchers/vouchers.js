@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import classes from './vouchers.css';
-import data from './data';
 import Wrap from '../../hoc/wrap/wrap';
 import NavigationItem from '../../components/Navigation/NavigationItems/NavigationItem/NavigationItem';
 import axios from '../../axios-base';
@@ -35,17 +34,19 @@ class vouchers extends Component {
             console.log(voucherItems);
 
 
-            voucherItems = voucherItems.filter(d => d.isShown).map((d, index) => {
-                index += 1;
-                const linkTo = 'voucher/' + d.id;
-                const usedMark = (<div className={classes.usedMark}>!</div>);
+            voucherItems = voucherItems.filter(d => d.isShown).length > 0 ?
+                voucherItems.filter(d => d.isShown).map((d, index) => {
+                    index += 1;
+                    const linkTo = 'voucher/' + d.id;
+                    console.log(linkTo);
+                    const usedMark = (<div className={classes.usedMark}>!</div>);
 
-                return (
-                    <li key={index} className={classes.voucherLink}>
-                        <NavigationItem key={index} link={linkTo}>{d.title} {d.isUsed && usedMark}</NavigationItem>
-                    </li>
-                )
-            })
+                    return (
+                        <li key={index} className={classes.voucherLink}>
+                            <NavigationItem key={index} link={linkTo}>{d.title} {d.isUsed && usedMark}</NavigationItem>
+                        </li>
+                    )
+                }) : <span>You currently have no unlocked vouchers :(</span>
         }
         return (
             <Wrap>

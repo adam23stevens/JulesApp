@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import classes from './Clue.css';
-import data from '../data';
 import Wrap from '../../../hoc/wrap/wrap';
 import NavigationItem from '../../../components/Navigation/NavigationItems/NavigationItem/NavigationItem';
 import axios from '../../../axios-base';
@@ -34,6 +33,8 @@ class Clue extends Component {
 
                 this.unlockData(url);
 
+                alert('NEW VOUCHER AVAILABLE!');
+
             }
 
             if (this.state.clueState.unlocks.clue != undefined) {
@@ -50,6 +51,8 @@ class Clue extends Component {
 
                 const url = 'https://jules-app.firebaseio.com/presents/' + presentUnlock + '.json';
                 this.unlockData(url);
+
+                alert('NEW PRESENT AVAILABLE!');
             }
 
             const updatedClue = this.state.clueState;
@@ -113,4 +116,4 @@ class Clue extends Component {
         )
     }
 }
-export default Clue;
+export default withErrorHandler(Clue, axios);

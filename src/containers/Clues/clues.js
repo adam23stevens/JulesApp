@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import classes from './clues.css';
-import data from './data';
 import Clue from './Clue/Clue';
 import NavigationItem from '../../components/Navigation/NavigationItems/NavigationItem/NavigationItem';
 import axios from '../../axios-base';
