@@ -1,4 +1,6 @@
 .Content { 
     width:100%;
+
+    max-width: 20rem;
     margin: 100px 30px 10px 30px;
 }

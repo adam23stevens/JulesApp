@@ -3,7 +3,7 @@
 }
 
 .redeemButton {
-    width: 30%;
+    width: 50%;
     background-color: #33bb11;
     border-radius: 5px;
     font-size: 19pt;
@@ -14,7 +14,7 @@
 }
 
 .redeemButtonUsed {
-    width: 40%;
+    width: 60%;
     background-color: #bb3311;
     border-radius: 5px;
     font-size: 19pt;

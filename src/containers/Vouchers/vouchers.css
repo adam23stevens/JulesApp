@@ -4,7 +4,15 @@
 }
 
 .usedMark {
-    color: red;
+    color: green;
     font-style: bold;
     display: inline;
+}
+
+.voucherLink{
+    list-style-image: url('../../assets/images/voucher-small.png');
+}
+
+.voucherLinkUsed {
+    list-style:none;
 }

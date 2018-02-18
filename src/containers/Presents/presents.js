@@ -35,17 +35,19 @@ class presents extends Component {
 
 
             presentItems = presentItems.filter(d => d.isShown).length > 0 ?
-                presentItems.filter(d => d.isShown).map((d, index) => {
-                    index += 1;
-                    const linkTo = 'present/' + d.id;
-                    console.log(linkTo);
+                presentItems.filter(d => d.isShown)
+                    .sort((a, b) => { return a.orderNum - b.orderNum })
+                    .map((d, index) => {
+                        index += 1;
+                        const linkTo = 'present/' + d.id;
+                        console.log(linkTo);
 
-                    return (
-                        <li key={index} className={classes.presentLink}>
-                            <NavigationItem key={index} link={linkTo}>{d.title}</NavigationItem>
-                        </li>
-                    )
-                }) : <span>You currently have no unlocked presents :(</span>
+                        return (
+                            <li key={index} className={classes.presentLink}>
+                                <NavigationItem key={index} link={linkTo}>{d.title}</NavigationItem>
+                            </li>
+                        )
+                    }) : <span>You currently have no unlocked presents :(</span>
         }
         return (
             <Wrap>

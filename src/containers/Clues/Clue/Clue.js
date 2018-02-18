@@ -14,7 +14,7 @@ class Clue extends Component {
     }
 
     onCheckAnswer = (answer, guess) => {
-        
+
         alert(
             answer === guess
                 ? 'you got it right'
@@ -64,54 +64,65 @@ class Clue extends Component {
     }
 
     unlockData(url) {
-        axios.get(url) 
-        .then(response => {
-            const updatedData = response.data;
-            updatedData.isShown = true;
-            console.log(updatedData);
+        axios.get(url)
+            .then(response => {
+                const updatedData = response.data;
+                updatedData.isShown = true;
+                console.log(updatedData);
 
-            axios.put(url, updatedData);
-        })
-        .catch(error => {
-            console.log(error);
-        })
+                axios.put(url, updatedData);
+            })
+            .catch(error => {
+                console.log(error);
+            })
     }
 
-    componentDidMount(){
+    componentDidMount() {
         const axiosUrl = 'https://jules-app.firebaseio.com/clues/' + this.props.match.params.id + '.json';
         axios.get(axiosUrl)
             .then(response => {
-                this.setState({clueState: response.data});
+                this.setState({ clueState: response.data });
             })
             .catch(error => {
-                this.setState({error: true})
+                this.setState({ error: true })
             })
     }
 
     render() {
         const backToClueText = '<-Back to clues';
 
-        let clueDisplay = this.state.error ? <p>cannot load clue</p> : <Spinner/>
+        let clueDisplay = this.state.error ? <p>cannot load clue</p> : <Spinner />
         if (this.state.clueState) {
             const clueItem = this.state.clueState;
             const clueDesc = 'Clue ' + clueItem.orderNum;
 
-            clueDisplay = (
-            <div className={classes.clue}>
-                <h4>{clueDesc}</h4>
-                <span>{clueItem.clueText}</span>
-                <input className={classes.answerBox} type='text' ref='answerText' placeholder='answer Here'/>
-                <input className={classes.answerButton} type='button' value='Go' onClick={() => this.onCheckAnswer(clueItem.clueAnswer, this.refs.answerText.value)} />
-            </div>
-            )
+            clueDisplay =
+                <div className={classes.clue}>
+                    <h4>{clueDesc}</h4>
+                    <span>{clueItem.clueText}</span>
+
+                    {clueItem.isAnswered &&
+                        <Wrap>
+                            <input className={classes.answerBox} type='text' value={clueItem.clueAnswer} disabled />
+                            <p>Done this one! :)</p>
+                        </Wrap>
+                    }
+                    {!clueItem.isAnswered &&
+                        <Wrap>
+                            <input className={classes.answerBox} type='text' ref='answerText' placeholder='answer Here' />
+                            <input className={classes.answerButton} type='button' value='Go' onClick={() => this.onCheckAnswer(clueItem.clueAnswer, this.refs.answerText.value)} />
+                        </Wrap>
+                    }
+                </div>
+
         }
 
         return (
             <Wrap>
-            {clueDisplay}
-            <div className={classes.back}>
-                <NavigationItem link='/clues'>{backToClueText}</NavigationItem>
-            </div>
+                {clueDisplay}
+                <div className={classes.back}>
+                    <NavigationItem link='/clues'>{backToClueText}</NavigationItem>
+                </div>
             </Wrap>
         )
     }

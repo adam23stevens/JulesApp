@@ -2,3 +2,6 @@
     display: flex;
     flex-direction: column;
 }
+.presentLink {
+    list-style-image: url('../../assets/images/present.png');
+}

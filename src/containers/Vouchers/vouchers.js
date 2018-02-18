@@ -35,18 +35,21 @@ class vouchers extends Component {
 
 
             voucherItems = voucherItems.filter(d => d.isShown).length > 0 ?
-                voucherItems.filter(d => d.isShown).map((d, index) => {
-                    index += 1;
-                    const linkTo = 'voucher/' + d.id;
-                    console.log(linkTo);
-                    const usedMark = (<div className={classes.usedMark}>!</div>);
+                voucherItems.filter(d => d.isShown)
+                    .sort((a, b) => { return a.orderNum - b.orderNum })
+                    .map((d, index) => {
+                        index += 1;
+                        const linkTo = 'voucher/' + d.id;
+                        console.log(linkTo);
+                        const usedMark = (<div className={classes.usedMark}>✓</div>);
+                        const listClass = d.isUsed ? classes.voucherLinkUsed : classes.voucherLink;
 
-                    return (
-                        <li key={index} className={classes.voucherLink}>
-                            <NavigationItem key={index} link={linkTo}>{d.title} {d.isUsed && usedMark}</NavigationItem>
-                        </li>
-                    )
-                }) : <span>You currently have no unlocked vouchers :(</span>
+                        return (
+                            <li key={index} className={listClass}>
+                                <NavigationItem key={index} link={linkTo}>{d.title} {d.isUsed && usedMark}</NavigationItem>
+                            </li>
+                        )
+                    }) : <span>You currently have no unlocked vouchers :(</span>
         }
         return (
             <Wrap>

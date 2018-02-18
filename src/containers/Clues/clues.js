@@ -17,32 +17,37 @@ class Clues extends Component {
     componentDidMount() {
         axios.get('https://jules-app.firebaseio.com/clues.json')
             .then(response => {
-                this.setState({cluesState: response.data});
+                this.setState({ cluesState: response.data });
             })
             .catch(error => {
-                this.setState({error: true})
+                this.setState({ error: true })
             })
     }
 
     render() {
-        let allClues = this.state.error ? <p>clues can''t be loaded</p> : <Spinner/>
+        let allClues = this.state.error ? <p>clues can''t be loaded</p> : <Spinner />
         if (this.state.cluesState) {
-        allClues = (Object.keys(this.state.cluesState).map(clueKey => {
-            return this.state.cluesState[clueKey]
-        }));
-        console.log(allClues);
+            allClues = (Object.keys(this.state.cluesState).map(clueKey => {
+                return this.state.cluesState[clueKey]
+            }));
+            console.log(allClues);
 
-        allClues = allClues.filter(d => d.isShown).map((d, index) => {
-            index += 1;
-            const linkTo = '/clue/' + d.id;
-            const clueName = d.id;
-            return (
-            <li key={index} className='clueItem'>
-                <NavigationItem link={linkTo}>{clueName}</NavigationItem>
-            </li>
-            )
-        })
-    }
+            allClues = allClues.filter(d => d.isShown)
+                .sort((a, b) => { return a.orderNum - b.orderNum })
+                .map((d, index) => {
+                    index += 1;
+                    const linkTo = '/clue/' + d.id;
+                    const clueName = d.id;
+                    const clueListStyle = d.isAnswered ? classes.clueItemAnswered : classes.clueItem;
+                    const answeredMark = (<div className={classes.answeredMark}>✓</div>);
+
+                    return (
+                        <li key={index} className={clueListStyle}>
+                            <NavigationItem link={linkTo}>{clueName} {d.isAnswered && answeredMark}</NavigationItem>
+                        </li>
+                    )
+                })
+        }
 
         return (
             <div className='clues'>
