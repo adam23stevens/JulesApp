@@ -42,8 +42,8 @@ class Clue extends Component {
 
             if (this.state.clueState.unlocks.clue != undefined) {
                 let clueUnlock = this.state.clueState.unlocks.clue;
-                console.log(clueUnlock);
 
+                alert('new clue available');
                 const url = 'https://jules-app.firebaseio.com/clues/' + clueUnlock + '.json';
                 this.unlockData(url);
             }
