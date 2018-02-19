@@ -5,3 +5,13 @@
 .presentLink {
     list-style-image: url('../../assets/images/present.png');
 }
+
+.presentLinkOrdered{
+    list-style: none;
+}
+
+.usedMark {
+    color: green;
+    font-style: bold;
+    display: inline;
+}

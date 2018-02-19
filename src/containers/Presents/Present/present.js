@@ -34,6 +34,10 @@ class present extends Component {
         alert('This has already been ordered you cheeky monkey poo bum');
     }
 
+    onOrderPresentUnavailable(presentItem){
+        alert("I'm relly sorry bunny but " + presentItem.title + " is on it's way shortly and you can have it as soon as it arrives.");
+    }
+
     componentDidMount() {
         console.log(this.props.match.params.id);
         const axiosUrl = 'https://jules-app.firebaseio.com/presents/' + this.props.match.params.id + '.json';
@@ -60,8 +64,24 @@ class present extends Component {
                     <p>Please confirm the following details regarding your order for this present. When you are happy, simply click the Order button</p>
 
                     <table className={classes.presentTable}>
+                    <thead>
+                        <tr>
+                            <th>
+                                <h3>Recipient</h3>
+                            </th>
+                            <th>
+                                <h3>Item</h3>
+                            </th>
+                            <th>
+                                <h3>Price</h3>
+                            </th>
+                        </tr>
+                        </thead>
                         <tbody>
                             <tr>
+                                <td>
+                                    Julia Rogers
+                                </td>
                                 <td>
                                     <h3>{presentItem.title}</h3>
                                 </td>
@@ -78,8 +98,12 @@ class present extends Component {
                         <input className={classes.orderButtonUsed} type='button' value='Ordered' onClick={() => this.onOrderOrderedPresent()} />
                     }
                     {
-                        !presentItem.isOrdered &&
+                        !presentItem.isOrdered && presentItem.isAvailable &&
                         <input className={classes.orderButton} type='button' value='Order Now!' onClick={() => this.onOrderPresent(presentItem)} />
+                    }
+                    {
+                        !presentItem.isOrdered && !presentItem.isAvailable &&
+                        <input className={classes.orderButtonNotAvailable} type='button' value='Available soon' onClick={() => this.onOrderPresentUnavailable(presentItem)}/>
                     }
                     {
                         presentItem.isOrdered &&

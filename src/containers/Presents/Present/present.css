@@ -25,6 +25,17 @@
     margin: 10%;
 }
 
+.orderButtonNotAvailable {
+    width: 90%;
+    background-color: #ffd700;
+    border-radius: 5px;
+    font-size: 17pt;
+    color: white;
+    box-shadow: 1px 1px 4px black;
+    line-height: 2rem;
+    margin: 5%;
+}
+
 .presentTable{
     width: 100%;
 }

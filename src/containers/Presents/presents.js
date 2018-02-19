@@ -40,11 +40,12 @@ class presents extends Component {
                     .map((d, index) => {
                         index += 1;
                         const linkTo = 'present/' + d.id;
-                        console.log(linkTo);
+                        const usedMark = (<div className={classes.usedMark}>✓</div>);
+                        const listClass = d.isOrdered ? classes.presentLinkOrdered : classes.presentLink
 
                         return (
-                            <li key={index} className={classes.presentLink}>
-                                <NavigationItem key={index} link={linkTo}>{d.title}</NavigationItem>
+                            <li key={index} className={listClass}>
+                                <NavigationItem key={index} link={linkTo}>{d.title} {d.isOrdered && usedMark}</NavigationItem>
                             </li>
                         )
                     }) : <span>You currently have no unlocked presents :(</span>
