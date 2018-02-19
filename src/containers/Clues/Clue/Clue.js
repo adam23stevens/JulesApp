@@ -20,8 +20,8 @@ class Clue extends Component {
 
         alert(
             isCorrect
-                ? 'you got it right'
-                : 'nope, that was wrong'
+                ? 'Yay!! You got it right!! :D'
+                : 'nope, that was wrong :('
         )
 
         if (!isCorrect) {
@@ -106,7 +106,7 @@ class Clue extends Component {
 
                     {clueItem.isAnswered &&
                         <Wrap>
-                            <input className={classes.answerBox} type='text' value={clueItem.clueAnswer} disabled />
+                            <input className={classes.answerBoxAnswered} type='button' value={clueItem.clueAnswer} onClick={() => this.onCheckAnswer(clueItem.clueAnswer, clueItem.clueAnswer)}/>
                             <p>Done this one! :)</p>
                         </Wrap>
                     }
