@@ -1,0 +1,34 @@
+.orderedText{
+    font-size: 7pt;
+    font-style: italic;
+    font-weight: bold;
+}
+.orderButton {
+    width: 70%;
+    background-color: #33bb11;
+    border-radius: 5px;
+    font-size: 19pt;
+    color: white;
+    box-shadow: 1px 1px 4px black;
+    line-height: 2rem;
+    margin: 10%;
+}
+
+.orderButtonUsed{
+    width: 70%;
+    background-color: #bb3311;
+    border-radius: 5px;
+    font-size: 19pt;
+    color: white;
+    box-shadow: 1px 1px 4px black;
+    line-height: 2rem;
+    margin: 10%;
+}
+
+.presentTable{
+    width: 100%;
+}
+
+.presentTable tr  td {
+    border-bottom: 1px solid #33DDCC;
+}

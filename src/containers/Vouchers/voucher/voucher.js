@@ -5,6 +5,7 @@ import NavigationItem from '../../../components/Navigation/NavigationItems/Navig
 import axios from '../../../axios-base';
 import Spinner from '../../../components/UI/Spinner/Spinner';
 import withErrorHandler from '../../../hoc/withErrorHandler/withErrorHandler';
+import Footer from '../../../components/UI/Footer/footer';
 
 class voucher extends Component {
 
@@ -15,17 +16,17 @@ class voucher extends Component {
 
 
     redeemVoucher = (voucher) => {
-       
+
         const url = 'https://jules-app.firebaseio.com/vouchers/' + voucher.id + '.json';
         voucher.isUsed = true;
 
         axios.put(url, voucher)
-        .then(response => {
-            alert(voucher.title + ' has been redeemed. Enjoy!');
-        })
-        .catch(error => {
-            console.log(error);
-        })
+            .then(response => {
+                alert(voucher.title + ' has been redeemed. Enjoy!');
+            })
+            .catch(error => {
+                console.log(error);
+            })
     }
 
     redeemUsedVoucher = (voucher) => {
@@ -73,9 +74,11 @@ class voucher extends Component {
         return (
             <Wrap>
                 {voucherDisplay}
-                <div className={classes.back}>
-                    <NavigationItem link='/vouchers'>{backText}</NavigationItem>
-                </div>
+                <Footer>
+                    <div className={classes.back}>
+                        <NavigationItem link='/vouchers'>{backText}</NavigationItem>
+                    </div>
+                </Footer>
             </Wrap>
         )
     }

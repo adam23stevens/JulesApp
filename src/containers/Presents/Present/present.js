@@ -5,12 +5,33 @@ import NavigationItem from '../../../components/Navigation/NavigationItems/Navig
 import axios from '../../../axios-base';
 import Spinner from '../../../components/UI/Spinner/Spinner';
 import withErrorHandler from '../../../hoc/withErrorHandler/withErrorHandler';
+import Footer from '../../../components/UI/Footer/footer';
 
 class present extends Component {
 
     state = {
         presentState: null,
         error: false
+    }
+
+    onOrderPresent(presentItem) {
+        const url = 'https://jules-app.firebaseio.com/presents/' + presentItem.id + '.json';
+
+        presentItem.isOrdered = true;
+        console.log(presentItem);
+
+        axios.put(url, presentItem)
+            .then(response => {
+                console.log(response);
+                alert(presentItem.title + ' has been successfully ordered! :)');
+            })
+            .catch(error => {
+                console.log(error);
+            })
+    }
+
+    onOrderOrderedPresent() {
+        alert('This has already been ordered you cheeky monkey poo bum');
     }
 
     componentDidMount() {
@@ -34,20 +55,49 @@ class present extends Component {
         if (this.state.presentState) {
             const presentItem = this.state.presentState;
 
-            presentDisplay = (
-                <div className={classes.voucher}>
-                    <h3>{presentItem.title}</h3>
-                    <span>{presentItem.presentText}</span>
+            presentDisplay =
+                <div className={classes.present}>
+                    <p>Please confirm the following details regarding your order for this present. When you are happy, simply click the Order button</p>
+
+                    <table className={classes.presentTable}>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <h3>{presentItem.title}</h3>
+                                </td>
+                                <td>
+                                    <h3>
+                                        £{presentItem.cost}
+                                    </h3>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    {
+                        presentItem.isOrdered &&
+                        <input className={classes.orderButtonUsed} type='button' value='Ordered' onClick={() => this.onOrderOrderedPresent()} />
+                    }
+                    {
+                        !presentItem.isOrdered &&
+                        <input className={classes.orderButton} type='button' value='Order Now!' onClick={() => this.onOrderPresent(presentItem)} />
+                    }
+                    {
+                        presentItem.isOrdered &&
+                        <span className={present.orderedText}>
+                            Thank you for using Pippin Bunny Biscuit Services ltd for your birthday present needs. We hope you have a lovely birthday! :)
+                            </span>
+                    }
                 </div>
-            )
         }
 
         return (
             <Wrap>
                 {presentDisplay}
-                <div className={classes.back}>
-                    <NavigationItem link='/presents'>{backText}</NavigationItem>
-                </div>
+                <Footer>
+                    <div className={classes.back}>
+                        <NavigationItem link='/presents'>{backText}</NavigationItem>
+                    </div>
+                </Footer>
             </Wrap>
         )
     }
