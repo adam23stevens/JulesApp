@@ -10,6 +10,8 @@ import vouchers from '../../containers/Vouchers/vouchers';
 import voucher from '../../containers/Vouchers/voucher/voucher';
 import presents from '../../containers/Presents/presents';
 import present from '../../containers/Presents/Present/present';
+import actions from '../../containers/actions/actions';
+import action from '../../containers/actions/action/Action';
 import { Route } from 'react-router-dom';
 
 class Layout extends Component {
@@ -42,6 +44,8 @@ class Layout extends Component {
                 <Route path="/voucher/:id" component={voucher}/>
                 <Route path="/presents" exact component={presents}/>
                 <Route path="/present/:id" component={present}/>
+                <Route path="/actions" exact component={actions}/>
+                <Route path="/action/:id" component={action}/>
             </main>
         </Wrap>
         )

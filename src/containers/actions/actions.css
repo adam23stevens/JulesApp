@@ -1,0 +1,13 @@
+.actionItem{
+   list-style-image: url('../../assets/images/clue.png');
+}
+
+.actionItemAnswered {
+    list-style:none;
+}
+
+.answeredMark {
+    color: green;
+    font-style: bold;
+    display: inline;
+}

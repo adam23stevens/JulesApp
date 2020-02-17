@@ -8,6 +8,7 @@ const navigationItems = () =>  (
         <NavigationItem link='/clues'>Clues</NavigationItem>
         <NavigationItem link='/vouchers'>Vouchers</NavigationItem>
         <NavigationItem link='/presents'>Presents</NavigationItem>
+        <NavigationItem link='/actions'>Actions</NavigationItem>
     </div>
 )
 
