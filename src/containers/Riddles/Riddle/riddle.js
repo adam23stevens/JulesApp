@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import classes from './Action.css';
+import classes from './riddle.css';
 import Wrap from '../../../hoc/wrap/wrap';
 import Footer from '../../../components/UI/Footer/footer';
 import NavigationItem from '../../../components/Navigation/NavigationItems/NavigationItem/NavigationItem';
@@ -7,10 +7,10 @@ import axios from '../../../axios-base';
 import Spinner from '../../../components/UI/Spinner/Spinner';
 import withErrorHandler from '../../../hoc/withErrorHandler/withErrorHandler';
 
-class Action extends Component {
+class Riddle extends Component {
 
     state = {
-        actionState: null,
+        riddleState: null,
         error: false
     }
 
@@ -20,7 +20,7 @@ class Action extends Component {
 
         alert(
             isCorrect
-                ? 'Well done!'
+                ? 'Yay!! You got it right!! :D'
                 : 'nope, that was wrong :('
         )
 
@@ -29,9 +29,9 @@ class Action extends Component {
         } else {
             //unlock stuff
 
-            if (this.state.actionState.unlocks.riddle !== undefined) {
-                let riddleUnlock = this.state.actionState.unlocks.riddle;
-                
+            if (this.state.riddleState.unlocks.riddle !== undefined) {
+                let riddleUnlock = this.state.riddleState.unlocks.riddle;
+                console.log(riddleUnlock);
                 const url = 'https://jules-app.firebaseio.com/riddles/' + riddleUnlock + '.json';
 
                 this.unlockData(url);
@@ -40,28 +40,29 @@ class Action extends Component {
 
             }
 
-            if (this.state.actionState.unlocks.clue !== undefined) {
-                let clueUnlock = this.state.actionState.unlocks.clue;
+            if (this.state.riddleState.unlocks.clue !== undefined) {
+                let clueUnlock = this.state.riddleState.unlocks.clue;
 
                 alert('new clue available');
                 const url = 'https://jules-app.firebaseio.com/clues/' + clueUnlock + '.json';
                 this.unlockData(url);
-            }           
+            }
 
-            if (this.state.actionState.unlocks.action !== undefined) {
-                let actionUnlock = this.state.actionState.unlocks.action;
+            if (this.state.riddleState.unlocks.action !== undefined) {
+                let actionUnlock = this.state.riddleState.unlocks.action;
 
                 const url = 'https://jules-app.firebaseio.com/actions/' + actionUnlock + '.json';
                 this.unlockData(url);
 
-                alert('NEW ACTION AVAILABLE!');
+                alert('New action available');
             }
+            
 
-            const updatedAction = this.state.actionState;
-            updatedAction.isAnswered = true;
+            const updatedriddle = this.state.riddleState;
+            updatedriddle.isAnswered = true;
 
-            const actionUrl = 'https://jules-app.firebaseio.com/actions/' + updatedAction.id + '.json';
-            axios.put(actionUrl, updatedAction);
+            const riddleUrl = 'https://jules-app.firebaseio.com/riddles/' + updatedriddle.id + '.json';
+            axios.put(riddleUrl, updatedriddle);
         }
     }
 
@@ -80,10 +81,10 @@ class Action extends Component {
     }
 
     componentDidMount() {
-        const axiosUrl = 'https://jules-app.firebaseio.com/actions/' + this.props.match.params.id + '.json';
+        const axiosUrl = 'https://jules-app.firebaseio.com/riddles/' + this.props.match.params.id + '.json';
         axios.get(axiosUrl)
             .then(response => {
-                this.setState({ actionState: response.data });
+                this.setState({ riddleState: response.data });
             })
             .catch(error => {
                 this.setState({ error: true })
@@ -91,27 +92,27 @@ class Action extends Component {
     }
 
     render() {
-        const backToActionText = '<-Back to actions';
+        const backToriddleText = '<-Back to Riddles';
 
-        let actionDisplay = this.state.error ? <p>cannot load action</p> : <Spinner />
-        if (this.state.actionState) {
-            const actionItem = this.state.actionState;
-            const actionDesc = 'Action ' + actionItem.orderNum;
+        let riddleDisplay = this.state.error ? <p>cannot load riddle</p> : <Spinner />
+        if (this.state.riddleState) {
+            const riddleItem = this.state.riddleState;
+            
+            riddleDisplay =
+                <div className={classes.riddle}>
+                    <h4>{riddleItem.title}</h4>
+                    <span>{riddleItem.riddleText}</span>
 
-            actionDisplay =
-                <div className={classes.action}>
-                    <h4>{actionDesc}</h4>
-                    <span>{actionItem.actionText}</span>
-
-                    {actionItem.isAnswered &&
+                    {riddleItem.isAnswered &&
                         <Wrap>
+                            <input className={classes.answerBoxAnswered} type='button' value={riddleItem.riddleAnswer} onClick={() => this.onCheckAnswer(riddleItem.riddleAnswer, riddleItem.riddleAnswer)}/>
                             <p>Done this one! :)</p>
                         </Wrap>
                     }
-                    {!actionItem.isAnswered &&
+                    {!riddleItem.isAnswered &&
                         <Wrap>
                             <input className={classes.answerBox} type='text' ref='answerText' placeholder='answer Here' />
-                            <input className={classes.answerButton} type='button' value='Go' onClick={() => this.onCheckAnswer(actionItem.actionAnswer, this.refs.answerText.value)} />
+                            <input className={classes.answerButton} type='button' value='Go' onClick={() => this.onCheckAnswer(riddleItem.riddleAnswer, this.refs.answerText.value)} />
                         </Wrap>
                     }
                 </div>
@@ -120,14 +121,14 @@ class Action extends Component {
 
         return (
             <Wrap>
-                {actionDisplay}
+                {riddleDisplay}
                 <Footer>
                     <div className={classes.back}>
-                        <NavigationItem link='/clues'>{backToActionText}</NavigationItem>
+                        <NavigationItem link='/riddles'>{backToriddleText}</NavigationItem>
                     </div>
                 </Footer>
             </Wrap>
         )
     }
 }
-export default withErrorHandler(Action, axios);
+export default withErrorHandler(Riddle, axios);

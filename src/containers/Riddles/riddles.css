@@ -1,0 +1,20 @@
+.riddles {
+    display: flex;
+    flex-direction: column;
+}
+
+.usedMark {
+    color: green;
+    font-style: bold;
+    display: inline;
+}
+
+.riddleLink{
+    list-style-image: url('../../assets/images/riddle-small.png');
+    color: black;
+}
+
+.riddleLinkUsed {
+    list-style:none;
+    color: black;
+}

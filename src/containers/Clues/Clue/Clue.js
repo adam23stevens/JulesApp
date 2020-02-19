@@ -29,18 +29,18 @@ class Clue extends Component {
         } else {
             //unlock stuff
 
-            if (this.state.clueState.unlocks.voucher != undefined) {
-                let voucherUnlock = this.state.clueState.unlocks.voucher;
-                console.log(voucherUnlock);
-                const url = 'https://jules-app.firebaseio.com/vouchers/' + voucherUnlock + '.json';
+            if (this.state.clueState.unlocks.riddle !== undefined) {
+                let riddleUnlock = this.state.clueState.unlocks.riddle;
+                console.log(riddleUnlock);
+                const url = 'https://jules-app.firebaseio.com/riddles/' + riddleUnlock + '.json';
 
                 this.unlockData(url);
 
-                alert('NEW VOUCHER AVAILABLE!');
+                alert('New riddle available!');
 
             }
 
-            if (this.state.clueState.unlocks.clue != undefined) {
+            if (this.state.clueState.unlocks.clue !== undefined) {
                 let clueUnlock = this.state.clueState.unlocks.clue;
 
                 alert('new clue available');
@@ -48,15 +48,15 @@ class Clue extends Component {
                 this.unlockData(url);
             }
 
-            if (this.state.clueState.unlocks.present != undefined) {
-                let presentUnlock = this.state.clueState.unlocks.present;
-                console.log(presentUnlock);
+            if (this.state.actionState.unlocks.action !== undefined) {
+                let actionUnlock = this.state.actionState.unlocks.action;
 
-                const url = 'https://jules-app.firebaseio.com/presents/' + presentUnlock + '.json';
+                const url = 'https://jules-app.firebaseio.com/actions/' + actionUnlock + '.json';
                 this.unlockData(url);
 
-                alert('NEW PRESENT AVAILABLE!');
+                alert('NEW ACTION AVAILABLE!');
             }
+            
 
             const updatedClue = this.state.clueState;
             updatedClue.isAnswered = true;
@@ -92,12 +92,12 @@ class Clue extends Component {
     }
 
     render() {
-        const backToClueText = '<-Back to clues';
+        const backToClueText = '<-Back to hunts';
 
-        let clueDisplay = this.state.error ? <p>cannot load clue</p> : <Spinner />
+        let clueDisplay = this.state.error ? <p>cannot load hunt</p> : <Spinner />
         if (this.state.clueState) {
             const clueItem = this.state.clueState;
-            const clueDesc = 'Clue ' + clueItem.orderNum;
+            const clueDesc = 'Hunt ' + clueItem.orderNum;
 
             clueDisplay =
                 <div className={classes.clue}>

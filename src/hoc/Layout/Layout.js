@@ -6,10 +6,8 @@ import SideDrawer from '../../components/Navigation/SideDrawer/SideDrawer';
 import home from '../../containers/Home/home';
 import clues from '../../containers/Clues/clues';
 import clue from '../../containers/Clues/Clue/Clue';
-import vouchers from '../../containers/Vouchers/vouchers';
-import voucher from '../../containers/Vouchers/voucher/voucher';
-import presents from '../../containers/Presents/presents';
-import present from '../../containers/Presents/Present/present';
+import riddles from '../../containers/Riddles/riddles';
+import riddle from '../../containers/Riddles/Riddle/riddle';
 import actions from '../../containers/actions/actions';
 import action from '../../containers/actions/action/Action';
 import { Route } from 'react-router-dom';
@@ -40,10 +38,8 @@ class Layout extends Component {
                 <Route path="/" exact component={home}/>
                 <Route path="/clues" exact component={clues}/>
                 <Route path="/clue/:id" component={clue}/>
-                <Route path="/vouchers" exact component={vouchers}/>
-                <Route path="/voucher/:id" component={voucher}/>
-                <Route path="/presents" exact component={presents}/>
-                <Route path="/present/:id" component={present}/>
+                <Route path="/riddles" exact component={riddles}/>
+                <Route path="/riddle/:id" component={riddle}/>                
                 <Route path="/actions" exact component={actions}/>
                 <Route path="/action/:id" component={action}/>
             </main>

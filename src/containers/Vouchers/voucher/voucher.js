@@ -1,40 +1,84 @@
 import React, { Component } from 'react';
-import Wrap from '../../../hoc/wrap/wrap';
 import classes from './voucher.css';
+import Wrap from '../../../hoc/wrap/wrap';
+import Footer from '../../../components/UI/Footer/footer';
 import NavigationItem from '../../../components/Navigation/NavigationItems/NavigationItem/NavigationItem';
 import axios from '../../../axios-base';
 import Spinner from '../../../components/UI/Spinner/Spinner';
 import withErrorHandler from '../../../hoc/withErrorHandler/withErrorHandler';
-import Footer from '../../../components/UI/Footer/footer';
 
-class voucher extends Component {
+class Voucher extends Component {
 
     state = {
         voucherState: null,
         error: false
     }
 
+    onCheckAnswer = (answer, guess) => {
 
-    redeemVoucher = (voucher) => {
+        const isCorrect = answer.toUpperCase() === guess.toUpperCase();
 
-        const url = 'https://jules-app.firebaseio.com/vouchers/' + voucher.id + '.json';
-        voucher.isUsed = true;
+        alert(
+            isCorrect
+                ? 'Yay!! You got it right!! :D'
+                : 'nope, that was wrong :('
+        )
 
-        axios.put(url, voucher)
+        if (!isCorrect) {
+            this.refs.answerText.value = '';
+        } else {
+            //unlock stuff
+
+            if (this.state.voucherState.unlocks.voucher != undefined) {
+                let voucherUnlock = this.state.voucherState.unlocks.voucher;
+                
+                const url = 'https://jules-app.firebaseio.com/vouchers/' + voucherUnlock + '.json';
+
+                this.unlockData(url);
+
+                alert('New Riddle available!');
+
+            }
+
+            if (this.state.voucherState.unlocks.clue != undefined) {
+                let clueUnlock = this.state.voucherState.unlocks.clue;
+
+                alert('New hunt available!');
+                const url = 'https://jules-app.firebaseio.com/clues/' + clueUnlock + '.json';
+                this.unlockData(url);
+            }
+
+            if (this.state.voucherState.unlocks.action != undefined) {
+                let actionUnlock = this.state.voucherState.unlocks.action;                
+
+                const url = 'https://jules-app.firebaseio.com/actions/' + actionUnlock + '.json';
+                this.unlockData(url);
+
+                alert('New Action Available!');
+            }
+
+            const updatedVoucher = this.state.voucherState;
+            updatedVoucher.isAnswered = true;
+
+            const voucherUrl = 'https://jules-app.firebaseio.com/vouchers/' + updatedVoucher.id + '.json';
+            axios.put(voucherUrl, updatedVoucher);
+        }
+    }
+
+    unlockData(url) {
+        axios.get(url)
             .then(response => {
-                alert(voucher.title + ' has been redeemed. Enjoy!');
+                const updatedData = response.data;
+                updatedData.isShown = true;
+                
+                axios.put(url, updatedData);
             })
             .catch(error => {
                 console.log(error);
             })
     }
 
-    redeemUsedVoucher = (voucher) => {
-        alert(voucher.title + ' has already been used you cheeky monkey!');
-    }
-
     componentDidMount() {
-        console.log(this.props.match.params.id);
         const axiosUrl = 'https://jules-app.firebaseio.com/vouchers/' + this.props.match.params.id + '.json';
         axios.get(axiosUrl)
             .then(response => {
@@ -46,43 +90,44 @@ class voucher extends Component {
     }
 
     render() {
-        const backText = '<-Back to vouchers';
+        const backText = '<-Back to Riddles';
 
-        let voucherDisplay = this.state.error ? <p>cannot load voucher</p> : <Spinner />
+        let display = this.state.error ? <p>cannot load Riddle</p> : <Spinner />
         if (this.state.voucherState) {
-            const voucherItem = this.state.voucherState;
+            const item = this.state.voucherState;
+            const desc = 'Riddle ' + item.orderNum;
 
-            voucherDisplay = (
-                <Wrap>
-                    <div className={classes.voucher}>
-                        <h3>{voucherItem.title}</h3>
-                        <span>This voucher entitles you to: </span>
-                        <span>{voucherItem.voucherText}</span>
-                    </div>
-                    <div className='voucher-accept'>
-                        {!voucherItem.isUsed &&
-                            <input className={classes.redeemButton} type='button' value='Redeem' onClick={() => this.redeemVoucher(voucherItem)} />
-                        }
-                        {voucherItem.isUsed &&
-                            <input className={classes.redeemButtonUsed} type='button' value='Redeemed!' onClick={() => this.redeemUsedVoucher(voucherItem)} />
-                        }
-                    </div>
-                </Wrap>
-            )
+            display =
+                <div className={classes.voucher}>
+                    <h4>{desc}</h4>
+                    <span>{item.voucherText}</span>
+
+                    {voucher.isAnswered &&
+                        <Wrap>
+                            <input className={classes.answerBoxAnswered} type='button' value={clueItem.clueAnswer} onClick={() => this.onCheckAnswer(clueItem.clueAnswer, clueItem.clueAnswer)}/>
+                            <p>Done this one! :)</p>
+                        </Wrap>
+                    }
+                    {!clueItem.isAnswered &&
+                        <Wrap>
+                            <input className={classes.answerBox} type='text' ref='answerText' placeholder='answer Here' />
+                            <input className={classes.answerButton} type='button' value='Go' onClick={() => this.onCheckAnswer(clueItem.clueAnswer, this.refs.answerText.value)} />
+                        </Wrap>
+                    }
+                </div>
+
         }
 
         return (
             <Wrap>
-                {voucherDisplay}
+                {clueDisplay}
                 <Footer>
                     <div className={classes.back}>
-                        <NavigationItem link='/vouchers'>{backText}</NavigationItem>
+                        <NavigationItem link='/clues'>{backToClueText}</NavigationItem>
                     </div>
                 </Footer>
             </Wrap>
         )
     }
 }
-
-
-export default withErrorHandler(voucher, axios);
+export default withErrorHandler(Clue, axios);

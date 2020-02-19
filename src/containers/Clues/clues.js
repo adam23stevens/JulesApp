@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import classes from './clues.css';
-import Clue from './Clue/Clue';
 import NavigationItem from '../../components/Navigation/NavigationItems/NavigationItem/NavigationItem';
 import axios from '../../axios-base';
 import Spinner from '../../components/UI/Spinner/Spinner';
@@ -25,7 +24,7 @@ class Clues extends Component {
     }
 
     render() {
-        let allClues = this.state.error ? <p>clues can''t be loaded</p> : <Spinner />
+        let allClues = this.state.error ? <p>Hunts can''t be loaded</p> : <Spinner />
         if (this.state.cluesState) {
             allClues = (Object.keys(this.state.cluesState).map(clueKey => {
                 return this.state.cluesState[clueKey]
@@ -51,7 +50,7 @@ class Clues extends Component {
 
         return (
             <div className='clues'>
-                <h1>Your clues so far...</h1>
+                <h1>Your hunts so far...</h1>
                 <ul className='clueList'>
                     {allClues}
                 </ul>

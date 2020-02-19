@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import classes from './actions.css';
-import Action from './action/Action';
 import NavigationItem from '../../components/Navigation/NavigationItems/NavigationItem/NavigationItem';
 import axios from '../../axios-base';
 import Spinner from '../../components/UI/Spinner/Spinner';

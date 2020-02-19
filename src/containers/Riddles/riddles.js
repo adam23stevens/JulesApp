@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import classes from './vouchers.css';
+import classes from './riddles.css';
 import Wrap from '../../hoc/wrap/wrap';
 import NavigationItem from '../../components/Navigation/NavigationItems/NavigationItem/NavigationItem';
 import axios from '../../axios-base';
@@ -8,17 +8,17 @@ import withErrorHandler from '../../hoc/withErrorHandler/withErrorHandler';
 
 
 
-class vouchers extends Component {
+class riddles extends Component {
 
     state = {
-        voucherState: null,
+        riddleState: null,
         error: false
     }
 
     componentDidMount() {
-        axios.get('https://jules-app.firebaseio.com/vouchers.json')
+        axios.get('https://jules-app.firebaseio.com/riddles.json')
             .then(response => {
-                this.setState({ voucherState: response.data });
+                this.setState({ riddleState: response.data });
             })
             .catch(error => {
                 this.setState({ error: true })
@@ -26,23 +26,20 @@ class vouchers extends Component {
     }
 
     render() {
-        let voucherItems = this.state.error ? <p>Riddles can''t be loaded</p> : <Spinner />
-        if (this.state.voucherState) {
-            voucherItems = (Object.keys(this.state.voucherState).map(vKey => {
-                return this.state.voucherState[vKey]
-            }));
-            console.log(voucherItems);
+        let riddleItems = this.state.error ? <p>Riddles can''t be loaded</p> : <Spinner />
+        if (this.state.riddleState) {
+            riddleItems = (Object.keys(this.state.riddleState).map(vKey => {
+                return this.state.riddleState[vKey]
+            }));            
 
-
-            voucherItems = voucherItems.filter(d => d.isShown).length > 0 ?
-                voucherItems.filter(d => d.isShown)
+            riddleItems = riddleItems.filter(d => d.isShown).length > 0 ?
+                riddleItems.filter(d => d.isShown)
                     .sort((a, b) => { return a.orderNum - b.orderNum })
                     .map((d, index) => {
                         index += 1;
-                        const linkTo = 'voucher/' + d.id;
-                        console.log(linkTo);
+                        const linkTo = 'riddle/' + d.id;                           
                         const usedMark = (<div className={classes.usedMark}>✓</div>);
-                        const listClass = d.isUsed ? classes.voucherLinkUsed : classes.voucherLink;
+                        const listClass = d.isUsed ? classes.riddleLinkUsed : classes.riddleLink;
 
                         return (
                             <li key={index} className={listClass}>
@@ -54,8 +51,8 @@ class vouchers extends Component {
         return (
             <Wrap>
                 <h1>Your available riddles</h1>
-                <ul className={classes.vouchers}>
-                    {voucherItems}
+                <ul className={classes.riddles}>
+                    {riddleItems}
                 </ul>
             </Wrap>
         )
@@ -63,4 +60,4 @@ class vouchers extends Component {
     }
 }
 
-export default withErrorHandler(vouchers, axios);
+export default withErrorHandler(riddles, axios);
