@@ -29,8 +29,7 @@ class Clues extends Component {
             allClues = (Object.keys(this.state.cluesState).map(clueKey => {
                 return this.state.cluesState[clueKey]
             }));
-            console.log(allClues);
-
+            
             allClues = allClues.filter(d => d.isShown)
                 .sort((a, b) => { return a.orderNum - b.orderNum })
                 .map((d, index) => {

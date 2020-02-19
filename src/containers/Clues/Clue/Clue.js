@@ -31,7 +31,7 @@ class Clue extends Component {
 
             if (this.state.clueState.unlocks.riddle !== undefined) {
                 let riddleUnlock = this.state.clueState.unlocks.riddle;
-                console.log(riddleUnlock);
+                
                 const url = 'https://jules-app.firebaseio.com/riddles/' + riddleUnlock + '.json';
 
                 this.unlockData(url);
@@ -71,8 +71,7 @@ class Clue extends Component {
             .then(response => {
                 const updatedData = response.data;
                 updatedData.isShown = true;
-                console.log(updatedData);
-
+                
                 axios.put(url, updatedData);
             })
             .catch(error => {

@@ -70,8 +70,6 @@ class Action extends Component {
             .then(response => {
                 const updatedData = response.data;
                 updatedData.isShown = true;
-                console.log(updatedData);
-
                 axios.put(url, updatedData);
             })
             .catch(error => {
