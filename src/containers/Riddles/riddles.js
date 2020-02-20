@@ -50,7 +50,7 @@ class riddles extends Component {
         }
         return (
             <Wrap>
-                <h1>Your available riddles</h1>
+                <h2 className={classes.title}>RIDDLES</h2>
                 <ul className={classes.riddles}>
                     {riddleItems}
                 </ul>

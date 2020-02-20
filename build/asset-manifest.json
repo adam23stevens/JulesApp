@@ -1,7 +1,9 @@
 {
-  "main.css": "static/css/main.2f90d21a.css",
-  "main.css.map": "static/css/main.2f90d21a.css.map",
-  "main.js": "static/js/main.69650be9.js",
-  "main.js.map": "static/js/main.69650be9.js.map",
-  "static\\media\\birthday-cake.png": "static/media/birthday-cake.ebe66f44.png"
+  "main.css": "static/css/main.fc4ca5b3.css",
+  "main.css.map": "static/css/main.fc4ca5b3.css.map",
+  "main.js": "static/js/main.b14b9bd0.js",
+  "main.js.map": "static/js/main.b14b9bd0.js.map",
+  "static/media/birthday-cake.png": "static/media/birthday-cake.ebe66f44.png",
+  "static/media/gatsby-banner.jpg": "static/media/gatsby-banner.1d15e04e.jpg",
+  "static/media/happy-birthday-image.jpg": "static/media/happy-birthday-image.0aa57a4b.jpg"
 }

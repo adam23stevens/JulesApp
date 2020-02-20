@@ -49,8 +49,8 @@ class Clues extends Component {
 
         return (
             <div className='clues'>
-                <h1>Your hunts so far...</h1>
-                <ul className='clueList'>
+                <h2 className={classes.title}>HUNTS</h2>
+                <ul className={classes.clueList}>
                     {allClues}
                 </ul>
             </div>

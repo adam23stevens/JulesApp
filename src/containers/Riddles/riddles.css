@@ -1,6 +1,16 @@
 .riddles {
     display: flex;
     flex-direction: column;
+    background-color: black;
+    border: 10px double gold;
+    
+}
+
+.title {
+    background-color: black;
+    color: gold;
+    text-align: center;
+    border: 10px double gold;
 }
 
 .usedMark {

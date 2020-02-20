@@ -43,9 +43,10 @@ class Riddle extends Component {
             if (this.state.riddleState.unlocks.clue !== undefined) {
                 let clueUnlock = this.state.riddleState.unlocks.clue;
 
-                alert('new clue available');
                 const url = 'https://jules-app.firebaseio.com/clues/' + clueUnlock + '.json';
                 this.unlockData(url);
+
+                alert('new clue available!');
             }
 
             if (this.state.riddleState.unlocks.action !== undefined) {
@@ -54,7 +55,7 @@ class Riddle extends Component {
                 const url = 'https://jules-app.firebaseio.com/actions/' + actionUnlock + '.json';
                 this.unlockData(url);
 
-                alert('New action available');
+                alert('New action available!');
             }
             
 
@@ -91,7 +92,7 @@ class Riddle extends Component {
     }
 
     render() {
-        const backToriddleText = '<-Back to Riddles';
+        const backToriddleText = 'Back';
 
         let riddleDisplay = this.state.error ? <p>cannot load riddle</p> : <Spinner />
         if (this.state.riddleState) {

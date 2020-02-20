@@ -42,10 +42,10 @@ class Action extends Component {
 
             if (this.state.actionState.unlocks.clue !== undefined) {
                 let clueUnlock = this.state.actionState.unlocks.clue;
-
-                alert('new clue available');
                 const url = 'https://jules-app.firebaseio.com/clues/' + clueUnlock + '.json';
                 this.unlockData(url);
+
+                alert('New clue available');
             }           
 
             if (this.state.actionState.unlocks.action !== undefined) {
@@ -54,7 +54,7 @@ class Action extends Component {
                 const url = 'https://jules-app.firebaseio.com/actions/' + actionUnlock + '.json';
                 this.unlockData(url);
 
-                alert('NEW ACTION AVAILABLE!');
+                alert('New action available!');
             }
 
             const updatedAction = this.state.actionState;
@@ -89,7 +89,7 @@ class Action extends Component {
     }
 
     render() {
-        const backToActionText = '<-Back to actions';
+        const backToActionText = 'Back';
 
         let actionDisplay = this.state.error ? <p>cannot load action</p> : <Spinner />
         if (this.state.actionState) {
@@ -121,7 +121,7 @@ class Action extends Component {
                 {actionDisplay}
                 <Footer>
                     <div className={classes.back}>
-                        <NavigationItem link='/clues'>{backToActionText}</NavigationItem>
+                        <NavigationItem link='/actions'>{backToActionText}</NavigationItem>
                     </div>
                 </Footer>
             </Wrap>

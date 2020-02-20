@@ -1,5 +1,13 @@
-.actionItem{
-   list-style-image: url('../../assets/images/clue.png');
+.actionList {
+    background-color: black;
+    border: 10px double gold;
+}
+
+.title {
+    background-color: black;
+    color: gold;
+    text-align: center;
+    border: 10px double gold;
 }
 
 .actionItemAnswered {

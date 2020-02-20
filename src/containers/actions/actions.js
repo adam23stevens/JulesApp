@@ -49,8 +49,8 @@ class Actions extends Component {
 
         return (
             <div className='actions'>
-                <h1>Your actions so far...</h1>
-                <ul className='actionList'>
+                <h2 className={classes.title}>ACTIONS</h2>
+                <ul className={classes.actionList}>
                     {allActions}
                 </ul>
             </div>

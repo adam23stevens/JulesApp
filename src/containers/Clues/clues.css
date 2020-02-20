@@ -1,5 +1,15 @@
-.clueItem{
-   list-style-image: url('../../assets/images/clue.png');
+
+
+.clueList {
+    background-color: black;
+    border: 10px double gold;
+}
+
+.title {
+    background-color: black;
+    color: gold;
+    text-align: center;
+    border: 10px double gold;
 }
 
 .clueItemAnswered {

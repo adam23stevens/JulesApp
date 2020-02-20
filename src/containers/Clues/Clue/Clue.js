@@ -42,10 +42,10 @@ class Clue extends Component {
 
             if (this.state.clueState.unlocks.clue !== undefined) {
                 let clueUnlock = this.state.clueState.unlocks.clue;
-
-                alert('new clue available');
                 const url = 'https://jules-app.firebaseio.com/clues/' + clueUnlock + '.json';
                 this.unlockData(url);
+
+                alert('new clue available');
             }
 
             if (this.state.actionState.unlocks.action !== undefined) {
@@ -54,7 +54,7 @@ class Clue extends Component {
                 const url = 'https://jules-app.firebaseio.com/actions/' + actionUnlock + '.json';
                 this.unlockData(url);
 
-                alert('NEW ACTION AVAILABLE!');
+                alert('New action available!');
             }
             
 
@@ -91,7 +91,7 @@ class Clue extends Component {
     }
 
     render() {
-        const backToClueText = '<-Back to hunts';
+        const backToClueText = 'Back';
 
         let clueDisplay = this.state.error ? <p>cannot load hunt</p> : <Spinner />
         if (this.state.clueState) {

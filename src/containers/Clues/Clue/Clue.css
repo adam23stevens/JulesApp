@@ -2,6 +2,10 @@
     display: flex;
     flex-direction: column;
     margin: auto 4px;
+    background-color: black;
+    color: gold;
+    border: 10px double gold;
+    text-align:center;
 }
 .clue h4{
     margin: 2rem 5%;
@@ -29,15 +33,18 @@
 }
 
 .answerButton {
-    background-color: #33bb11;
+    background-color: gold;
     border-radius: 5px;
     font-size: 19pt;
     color: white;
-    box-shadow: 1px 1px 4px black;
     line-height: 2rem;
     margin: 2rem 25%;
 }
 
 .back {
     margin-top: 10rem;
+    background-color: black;
+    color: gold;
+    border: 10px double gold;
+    padding:5px 10px;
 }

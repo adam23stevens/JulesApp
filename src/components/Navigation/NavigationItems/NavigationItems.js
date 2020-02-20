@@ -4,10 +4,10 @@ import classes from './NavigationItems.css';
 
 const navigationItems = () =>  (
     <div className={classes.NavigationItems}>
-        <NavigationItem link='/'>Home</NavigationItem>
+        <NavigationItem link='/'>HOME</NavigationItem>
         <NavigationItem link='/clues'>HUNTS</NavigationItem>
         <NavigationItem link='/riddles'>RIDDLES</NavigationItem>        
-        <NavigationItem link='/actions'>Actions</NavigationItem>
+        <NavigationItem link='/actions'>ACTIONS</NavigationItem>
     </div>
 )
 
