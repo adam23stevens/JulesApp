@@ -1,4 +1,4 @@
-.riddles {
+.keys {
     display: flex;
     flex-direction: column;
     background-color: black;
@@ -19,11 +19,11 @@
     display: inline;
 }
 
-.riddleLink{
+.keyLink{
     color: black;
 }
 
-.riddleLinkUsed {
+.keyLinkUsed {
     list-style:none;
     color: black;
 }

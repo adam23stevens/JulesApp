@@ -1,0 +1,23 @@
+.key {
+    display: flex;
+    flex-direction: column;
+    margin: auto 4px;
+    background-color: black;
+    color: gold;
+    border: 10px double gold;
+    text-align:center;
+}
+.key h4{
+    margin: 2rem 5%;
+}
+.key span{
+    margin: 2rem;
+}
+
+.back {
+    margin-top: 10rem;
+    background-color: black;
+    color: gold;
+    border: 10px double gold;
+    padding:5px 10px;
+}

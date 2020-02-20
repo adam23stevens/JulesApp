@@ -10,6 +10,8 @@ import riddles from '../../containers/Riddles/riddles';
 import riddle from '../../containers/Riddles/Riddle/riddle';
 import actions from '../../containers/actions/actions';
 import action from '../../containers/actions/action/Action';
+import keys from '../../containers/Keys/keys';
+import key from '../../containers/Keys/Key/key';
 import { Route } from 'react-router-dom';
 
 class Layout extends Component {
@@ -42,6 +44,8 @@ class Layout extends Component {
                 <Route path="/riddle/:id" component={riddle}/>                
                 <Route path="/actions" exact component={actions}/>
                 <Route path="/action/:id" component={action}/>
+                <Route path="/keys" exact component={keys}/>
+                <Route path="/key/:id" component={key}/>
             </main>
         </Wrap>
         )
