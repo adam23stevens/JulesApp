@@ -40,12 +40,20 @@ class Action extends Component {
 
             }
 
+            if (this.state.actionState.unlocks.key !== undefined) {
+                let keyUnlock = this.state.actionState.unlocks.key;
+
+                const url = 'https://jules-app.firebaseio.com/keys/' + keyUnlock + '.json';
+                this.unlockData(url);
+
+                alert('New key available!');
+            }
+
             if (this.state.actionState.unlocks.clue !== undefined) {
                 let clueUnlock = this.state.actionState.unlocks.clue;
                 const url = 'https://jules-app.firebaseio.com/clues/' + clueUnlock + '.json';
                 this.unlockData(url);
-
-                alert('New clue available');
+                
             }           
 
             if (this.state.actionState.unlocks.action !== undefined) {

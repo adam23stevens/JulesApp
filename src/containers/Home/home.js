@@ -12,22 +12,19 @@ const home = () => {
                 <img className={classes.bannerLogo} src={banner} alt='banner'/>
 
                 <div className={classes.homeText}>
-                    <h1>HAPPY BIRTHDAY BUNNY!!!!!</h1>
+                    <h1>HAPPY 30th BIRTHDAY BUNNY!!!!!</h1>
 
-                    <span>Happy birthday my beautiful darling biscuit</span>
-                    <p>Yes.. this is another treasure hunt..</p>
-                    <p>but this time, you have an app to help you :)</p>
+                    <span>Did you think you weren't getting a treasure hunt?</span>
+                    <p>Of course you're getting a treasure hunt. Silly monkey.</p>
 
-                    <p>You best start unlocking some presents and vouchers by solving the clues.</p>
+                    <p>You know what to do! Go start solving stuff. I'll be around to help. Maybe</p>
                     <p>I Love you very much!!! xxxxxx</p>
                     <br/>
-
-                    <p>Use the menu on the top left and we shall see how well you do :)</p>
                 </div>
                 
             </div>
             <Footer>
-                <span className={classes.smallText}>I am really sorry if any bugs happen :S</span>
+               
             </Footer>
         </Wrap>
 

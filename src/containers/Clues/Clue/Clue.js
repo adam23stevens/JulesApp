@@ -48,13 +48,22 @@ class Clue extends Component {
                 alert('new clue available');
             }
 
-            if (this.state.actionState.unlocks.action !== undefined) {
-                let actionUnlock = this.state.actionState.unlocks.action;
+            if (this.state.clueState.unlocks.action !== undefined) {
+                let actionUnlock = this.state.clueState.unlocks.action;
 
                 const url = 'https://jules-app.firebaseio.com/actions/' + actionUnlock + '.json';
                 this.unlockData(url);
 
                 alert('New action available!');
+            }
+
+            if (this.state.clueState.unlocks.key !== undefined) {
+                let keyUnlock = this.state.clueState.unlocks.key;
+
+                const url = 'https://jules-app.firebaseio.com/keys/' + keyUnlock + '.json';
+                this.unlockData(url);
+
+                alert('New key available!');
             }
             
 

@@ -57,6 +57,15 @@ class Riddle extends Component {
 
                 alert('New action available!');
             }
+
+            if (this.state.riddleState.unlocks.key !== undefined) {
+                let keyUnlock = this.state.riddleState.unlocks.key;
+
+                const url = 'https://jules-app.firebaseio.com/keys/' + keyUnlock + '.json';
+                this.unlockData(url);
+
+                alert('New key available!');
+            }
             
 
             const updatedriddle = this.state.riddleState;
